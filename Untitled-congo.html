@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.P.D.C - Gestion de Projet</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #007BFF;
+            padding: 10px 0;
+            margin-bottom: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 10px;
+        }
+        nav a:hover {
+            background-color: #0056b3;
+            border-radius: 4px;
+        }
+        section {
+            display: none;
+        }
+        section.active {
+            display: block;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            display: block;
+        }
+        input, textarea, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f4f4f4;
+            font-size: 0.9rem;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Alliance pour la Paix et le Développement Communautaire</h1>
+    <p>Gestion centralisée de projet</p>
+</header>
+
+<nav>
+    <a href="#" data-section="form">Créer une Fiche</a>
+    <a href="#" data-section="messagerie">Messagerie</a>
+    <a href="#" data-section="actualites">Actualités</a>
+    <a href="#" data-section="emplois">Offres d'Emploi</a>
+    <a href="#" data-section="publications">Publications</a>
+    <a href="#" data-section="travaux">Nos Travaux</a>
+</nav>
+
+<div class="container">
+    <section id="form" class="active">
+        <h2>Créer une Fiche</h2>
+        <form action="#" method="post">
+            <div class="form-group">
+                <label for="name">Nom :</label>
+                <input type="text" id="name" name="name" placeholder="Entrez votre nom" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" placeholder="Entrez votre email" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date de Naissance :</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Sexe :</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Sélectionnez votre sexe</option>
+                    <option value="homme">Homme</option>
+                    <option value="femme">Femme</option>
+                    <option value="autre">Autre</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="project-description">Description du Projet :</label>
+                <textarea id="project-description" name="project-description" rows="4" placeholder="Décrivez votre projet"></textarea>
+            </div>
+            <button type="submit">Enregistrer</button>
+        </form>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2024 A.P.D.C. Tous droits réservés.</p>
+</footer>
+
+<script>
+    const links = document.querySelectorAll('nav a');
+    const sections = document.querySelectorAll('section');
+
+    links.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetSection = document.querySelector(`#${link.dataset.section}`);
+            sections.forEach(section => section.classList.remove('active'));
+            targetSection.classList.add('active');
+        });
+    });
+</script>
+</body>
+</html>
